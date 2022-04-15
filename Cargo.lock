@@ -38,8 +38,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "termo-solver-anti-mula"
-version = "0.1.0"
+name = "termo-solver"
+version = "1.0.0"
 dependencies = [
  "float-ord",
  "unroll",
