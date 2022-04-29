@@ -104,7 +104,7 @@ impl Solver {
     }
 
     fn calculate_scores(possible: &HashSet<&'static Word>) -> Vec<(f32, &'static Word)> {
-        let mut scores = Vec::with_capacity(VALID_WORDS.len());
+        let mut scores = Vec::with_capacity(possible.len());
 
         match possible.len() {
             0 => {
@@ -119,7 +119,7 @@ impl Solver {
             _ => {}
         }
         
-        for written in VALID_WORDS.iter() {
+        for written in possible.iter() {
             let mut pattern_counter = [0; 243];
 
             let mut score: f32 = 0.0;
@@ -142,7 +142,7 @@ impl Solver {
                 score   += prob * info;
             }
             
-            scores.push((score, written));
+            scores.push((score, *written));
         }
 
         scores
